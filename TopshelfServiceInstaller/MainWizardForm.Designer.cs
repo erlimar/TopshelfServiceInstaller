@@ -32,6 +32,7 @@
             this.imgLogo = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gbxInstAtual = new System.Windows.Forms.GroupBox();
+            this.lblInstAtual_Diretorio_Valor = new System.Windows.Forms.LinkLabel();
             this.lblInstAtual_NenhumaInstalacao = new System.Windows.Forms.Label();
             this.lblInstAtual_Versao_Valor = new System.Windows.Forms.Label();
             this.lblInstAtual_Versao = new System.Windows.Forms.Label();
@@ -41,13 +42,12 @@
             this.lblInstAtual_NomeServico = new System.Windows.Forms.Label();
             this.lblInstAtual_Diretorio = new System.Windows.Forms.Label();
             this.pnlWizard_1 = new System.Windows.Forms.Panel();
-            this.lblCopyright = new System.Windows.Forms.Label();
-            this.lblInstAtual_Diretorio_Valor = new System.Windows.Forms.LinkLabel();
-            this.lnkSair = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnDesinstalar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
+            this.btnDesinstalar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblCopyright = new System.Windows.Forms.Label();
+            this.lnkSair = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.gbxInstAtual.SuspendLayout();
             this.pnlWizard_1.SuspendLayout();
@@ -93,6 +93,16 @@
             this.gbxInstAtual.TabIndex = 2;
             this.gbxInstAtual.TabStop = false;
             this.gbxInstAtual.Text = "Instalação atual";
+            // 
+            // lblInstAtual_Diretorio_Valor
+            // 
+            this.lblInstAtual_Diretorio_Valor.AutoSize = true;
+            this.lblInstAtual_Diretorio_Valor.Location = new System.Drawing.Point(106, 41);
+            this.lblInstAtual_Diretorio_Valor.Name = "lblInstAtual_Diretorio_Valor";
+            this.lblInstAtual_Diretorio_Valor.Size = new System.Drawing.Size(143, 13);
+            this.lblInstAtual_Diretorio_Valor.TabIndex = 9;
+            this.lblInstAtual_Diretorio_Valor.TabStop = true;
+            this.lblInstAtual_Diretorio_Valor.Text = "C:\\Arquivos de Programas\\X";
             // 
             // lblInstAtual_NenhumaInstalacao
             // 
@@ -180,40 +190,50 @@
             this.pnlWizard_1.Size = new System.Drawing.Size(743, 181);
             this.pnlWizard_1.TabIndex = 3;
             // 
-            // lblCopyright
+            // btnSair
             // 
-            this.lblCopyright.AutoSize = true;
-            this.lblCopyright.BackColor = System.Drawing.Color.Transparent;
-            this.lblCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCopyright.ForeColor = System.Drawing.Color.Teal;
-            this.lblCopyright.Location = new System.Drawing.Point(654, 475);
-            this.lblCopyright.Name = "lblCopyright";
-            this.lblCopyright.Size = new System.Drawing.Size(129, 18);
-            this.lblCopyright.TabIndex = 4;
-            this.lblCopyright.Text = "Copyright (c) 2018";
+            this.btnSair.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSair.BackgroundImage")));
+            this.btnSair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.Location = new System.Drawing.Point(605, 20);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(138, 158);
+            this.btnSair.TabIndex = 3;
+            this.btnSair.Text = "DESINSTALAR";
+            this.btnSair.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSair.UseVisualStyleBackColor = true;
             // 
-            // lblInstAtual_Diretorio_Valor
+            // btnDesinstalar
             // 
-            this.lblInstAtual_Diretorio_Valor.AutoSize = true;
-            this.lblInstAtual_Diretorio_Valor.Location = new System.Drawing.Point(106, 41);
-            this.lblInstAtual_Diretorio_Valor.Name = "lblInstAtual_Diretorio_Valor";
-            this.lblInstAtual_Diretorio_Valor.Size = new System.Drawing.Size(143, 13);
-            this.lblInstAtual_Diretorio_Valor.TabIndex = 9;
-            this.lblInstAtual_Diretorio_Valor.TabStop = true;
-            this.lblInstAtual_Diretorio_Valor.Text = "C:\\Arquivos de Programas\\X";
+            this.btnDesinstalar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDesinstalar.BackgroundImage")));
+            this.btnDesinstalar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnDesinstalar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDesinstalar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDesinstalar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesinstalar.Location = new System.Drawing.Point(318, 20);
+            this.btnDesinstalar.Name = "btnDesinstalar";
+            this.btnDesinstalar.Size = new System.Drawing.Size(138, 158);
+            this.btnDesinstalar.TabIndex = 2;
+            this.btnDesinstalar.Text = "ATUALIZAR";
+            this.btnDesinstalar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDesinstalar.UseVisualStyleBackColor = true;
             // 
-            // lnkSair
+            // button2
             // 
-            this.lnkSair.AutoSize = true;
-            this.lnkSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkSair.LinkColor = System.Drawing.Color.Red;
-            this.lnkSair.Location = new System.Drawing.Point(735, 0);
-            this.lnkSair.Name = "lnkSair";
-            this.lnkSair.Size = new System.Drawing.Size(38, 18);
-            this.lnkSair.TabIndex = 5;
-            this.lnkSair.TabStop = true;
-            this.lnkSair.Text = "Sair";
-            this.lnkSair.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkSair_LinkClicked);
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(160, 20);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(138, 158);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "REINSTALAR";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -230,47 +250,30 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // lblCopyright
             // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(160, 20);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 158);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "REINSTALAR";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
+            this.lblCopyright.AutoSize = true;
+            this.lblCopyright.BackColor = System.Drawing.Color.Transparent;
+            this.lblCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCopyright.ForeColor = System.Drawing.Color.Teal;
+            this.lblCopyright.Location = new System.Drawing.Point(654, 475);
+            this.lblCopyright.Name = "lblCopyright";
+            this.lblCopyright.Size = new System.Drawing.Size(129, 18);
+            this.lblCopyright.TabIndex = 4;
+            this.lblCopyright.Text = "Copyright (c) 2018";
             // 
-            // btnDesinstalar
+            // lnkSair
             // 
-            this.btnDesinstalar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDesinstalar.BackgroundImage")));
-            this.btnDesinstalar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDesinstalar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDesinstalar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesinstalar.Location = new System.Drawing.Point(318, 20);
-            this.btnDesinstalar.Name = "btnDesinstalar";
-            this.btnDesinstalar.Size = new System.Drawing.Size(138, 158);
-            this.btnDesinstalar.TabIndex = 2;
-            this.btnDesinstalar.Text = "ATUALIZAR";
-            this.btnDesinstalar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDesinstalar.UseVisualStyleBackColor = true;
-            // 
-            // btnSair
-            // 
-            this.btnSair.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSair.BackgroundImage")));
-            this.btnSair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(605, 20);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(138, 158);
-            this.btnSair.TabIndex = 3;
-            this.btnSair.Text = "DESINSTALAR";
-            this.btnSair.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSair.UseVisualStyleBackColor = true;
+            this.lnkSair.AutoSize = true;
+            this.lnkSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkSair.LinkColor = System.Drawing.Color.Red;
+            this.lnkSair.Location = new System.Drawing.Point(735, 0);
+            this.lnkSair.Name = "lnkSair";
+            this.lnkSair.Size = new System.Drawing.Size(38, 18);
+            this.lnkSair.TabIndex = 5;
+            this.lnkSair.TabStop = true;
+            this.lnkSair.Text = "Sair";
+            this.lnkSair.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkSair_LinkClicked);
             // 
             // MainWizardForm
             // 

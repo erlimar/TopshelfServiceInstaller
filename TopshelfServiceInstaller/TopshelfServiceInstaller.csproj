@@ -94,6 +94,13 @@
     <Content Include="Images\atualizar_icon.png" />
     <Content Include="Images\bluewave-bkg-1980light.jpg" />
     <Content Include="Images\icons8-center-of-gravity-100.png" />
+    <Content Include="Images\icons8-reset-96.png" />
+    <Content Include="Images\icons8-software-installer-64.png" />
+    <Content Include="Images\icons8-template-64.png" />
+    <Content Include="Images\icons8-trash-can-64.png" />
+    <Content Include="Images\icons8-uninstalling-updates-64.png" />
+    <Content Include="Images\icons8-update-64.png" />
+    <Content Include="Images\icons8-upgrade-64.png" />
     <Content Include="Images\instalar_icon.png" />
     <Content Include="Images\reinstalar_icon.png" />
     <Content Include="Images\uninstall.png" />
