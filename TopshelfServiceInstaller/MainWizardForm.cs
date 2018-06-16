@@ -25,8 +25,19 @@ namespace TopshelfServiceInstaller
         {
             UpdateInstalacaoAtual();
             GoToWizard(1);
+            HabilitarBotoes();
 
             ActiveControl = lnkSair;
+        }
+
+        private void HabilitarBotoes()
+        {
+            bool instalado = _instalacao != null;
+
+            btnInstalar.Enabled = !instalado;
+            btnReinstalar.Enabled = instalado;
+            btnAtualizar.Enabled = instalado;
+            btnDesinstalar.Enabled = instalado;
         }
 
         private void lnkSair_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

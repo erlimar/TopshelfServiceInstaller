@@ -745,7 +745,7 @@
         YQ1rWMMa1rCGNaxhDWtYwxrWsIY1rGENayzQ+F//6/8DF0zEapFKMh8AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnSair.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnDesinstalar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAABelJREFUeF7tWu9PW1UYJtEYP6jf/OZHY+I/4F+g/gEmfluiX11bZjROo5uMzQG6
@@ -776,7 +776,7 @@
         5UJJatBadqm++WjwBZRRRRVVVFFFFaZRU/MfgTyx0fuI77oAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnDesinstalar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnAtualizar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAADQRJREFUeF7tW1d3FEcW5mX3ZXf/wp6N/2LXv2Dj+6Ynn2ONhOyDScYGG2xjUARj
@@ -838,7 +838,7 @@
         TkSuQmCC
 </value>
   </data>
-  <data name="button2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnReinstalar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAADZdJREFUeF7tW2lsVNcVjtp0b9VVVVs1XdQtalWlq9TlV6v2R/e0aZpKrdT+KQp+
@@ -902,7 +902,7 @@
         Pfi+BlQ4cZy/6ab/Ansbmxitn5cKAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnInstalar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAABY9JREFUeF7tmttPHGUYxhs1GmOMt156Z+If0MQ7b7z2RuMf0KQXHRBrpRdqWMHG

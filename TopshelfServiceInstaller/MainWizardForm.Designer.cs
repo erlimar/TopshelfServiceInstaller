@@ -42,10 +42,10 @@
             this.lblInstAtual_NomeServico = new System.Windows.Forms.Label();
             this.lblInstAtual_Diretorio = new System.Windows.Forms.Label();
             this.pnlWizard_1 = new System.Windows.Forms.Panel();
-            this.btnSair = new System.Windows.Forms.Button();
             this.btnDesinstalar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
+            this.btnReinstalar = new System.Windows.Forms.Button();
+            this.btnInstalar = new System.Windows.Forms.Button();
             this.lblCopyright = new System.Windows.Forms.Label();
             this.lnkSair = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
@@ -182,29 +182,14 @@
             // pnlWizard_1
             // 
             this.pnlWizard_1.BackColor = System.Drawing.Color.Transparent;
-            this.pnlWizard_1.Controls.Add(this.btnSair);
             this.pnlWizard_1.Controls.Add(this.btnDesinstalar);
-            this.pnlWizard_1.Controls.Add(this.button2);
-            this.pnlWizard_1.Controls.Add(this.button1);
+            this.pnlWizard_1.Controls.Add(this.btnAtualizar);
+            this.pnlWizard_1.Controls.Add(this.btnReinstalar);
+            this.pnlWizard_1.Controls.Add(this.btnInstalar);
             this.pnlWizard_1.Location = new System.Drawing.Point(26, 274);
             this.pnlWizard_1.Name = "pnlWizard_1";
             this.pnlWizard_1.Size = new System.Drawing.Size(743, 181);
             this.pnlWizard_1.TabIndex = 3;
-            // 
-            // btnSair
-            // 
-            this.btnSair.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSair.BackgroundImage")));
-            this.btnSair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(605, 20);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(138, 158);
-            this.btnSair.TabIndex = 3;
-            this.btnSair.Text = "DESINSTALAR";
-            this.btnSair.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSair.UseVisualStyleBackColor = true;
             // 
             // btnDesinstalar
             // 
@@ -213,43 +198,60 @@
             this.btnDesinstalar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDesinstalar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDesinstalar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesinstalar.Location = new System.Drawing.Point(318, 20);
+            this.btnDesinstalar.Location = new System.Drawing.Point(605, 20);
             this.btnDesinstalar.Name = "btnDesinstalar";
             this.btnDesinstalar.Size = new System.Drawing.Size(138, 158);
-            this.btnDesinstalar.TabIndex = 2;
-            this.btnDesinstalar.Text = "ATUALIZAR";
+            this.btnDesinstalar.TabIndex = 3;
+            this.btnDesinstalar.Text = "DESINSTALAR";
             this.btnDesinstalar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDesinstalar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnAtualizar
             // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(160, 20);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 158);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "REINSTALAR";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAtualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.BackgroundImage")));
+            this.btnAtualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAtualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAtualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtualizar.Location = new System.Drawing.Point(318, 20);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(138, 158);
+            this.btnAtualizar.TabIndex = 2;
+            this.btnAtualizar.Text = "ATUALIZAR";
+            this.btnAtualizar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Visible = false;
             // 
-            // button1
+            // btnReinstalar
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(3, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 158);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "INSTALAR";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnReinstalar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReinstalar.BackgroundImage")));
+            this.btnReinstalar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnReinstalar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReinstalar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReinstalar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReinstalar.Location = new System.Drawing.Point(160, 20);
+            this.btnReinstalar.Name = "btnReinstalar";
+            this.btnReinstalar.Size = new System.Drawing.Size(138, 158);
+            this.btnReinstalar.TabIndex = 1;
+            this.btnReinstalar.Text = "REINSTALAR";
+            this.btnReinstalar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReinstalar.UseVisualStyleBackColor = true;
+            this.btnReinstalar.Visible = false;
+            // 
+            // btnInstalar
+            // 
+            this.btnInstalar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnInstalar.BackgroundImage")));
+            this.btnInstalar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnInstalar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInstalar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnInstalar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInstalar.Location = new System.Drawing.Point(3, 20);
+            this.btnInstalar.Name = "btnInstalar";
+            this.btnInstalar.Size = new System.Drawing.Size(138, 158);
+            this.btnInstalar.TabIndex = 0;
+            this.btnInstalar.Text = "INSTALAR";
+            this.btnInstalar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnInstalar.UseVisualStyleBackColor = true;
             // 
             // lblCopyright
             // 
@@ -326,10 +328,10 @@
         private System.Windows.Forms.Label lblCopyright;
         private System.Windows.Forms.LinkLabel lblInstAtual_Diretorio_Valor;
         private System.Windows.Forms.LinkLabel lnkSair;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnInstalar;
+        private System.Windows.Forms.Button btnReinstalar;
+        private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnDesinstalar;
-        private System.Windows.Forms.Button btnSair;
     }
 }
 
