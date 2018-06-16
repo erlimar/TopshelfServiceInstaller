@@ -1,14 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ServiceProcess;
 using System.Windows.Forms;
 
 namespace TopshelfServiceInstaller
@@ -122,8 +116,16 @@ namespace TopshelfServiceInstaller
 
         private StatusServico ObterStatusServico(string nomeServico)
         {
-            // TODO: Verificar status do serviço por nome
-            return StatusServico.Parado;
+            try
+            {
+                ServiceController sc = new ServiceController(nomeServico);
+
+                return (StatusServico)(int)sc.Status;
+            }
+            catch (Exception)
+            {
+                return StatusServico.Inacessivel;
+            }
         }
 
         private void lblInstAtual_Diretorio_Valor_Click(object sender, EventArgs e)
