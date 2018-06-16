@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.ServiceProcess;
 using System.Windows.Forms;
+using TopshelfServiceInstaller.Actions;
 
 namespace TopshelfServiceInstaller
 {
@@ -147,6 +148,11 @@ namespace TopshelfServiceInstaller
             {
                 Process.Start(path);
             }
+        }
+
+        private void btnDesinstalar_Click(object sender, EventArgs e)
+        {
+            UninstallAction.DoAction(_instalacao, this);
         }
     }
 }

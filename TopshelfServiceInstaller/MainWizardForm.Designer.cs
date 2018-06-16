@@ -205,6 +205,7 @@
             this.btnDesinstalar.Text = "DESINSTALAR";
             this.btnDesinstalar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDesinstalar.UseVisualStyleBackColor = true;
+            this.btnDesinstalar.Click += new System.EventHandler(this.btnDesinstalar_Click);
             // 
             // btnAtualizar
             // 
