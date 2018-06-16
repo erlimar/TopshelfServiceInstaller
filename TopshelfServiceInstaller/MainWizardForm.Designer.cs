@@ -103,6 +103,7 @@
             this.lblInstAtual_Diretorio_Valor.TabIndex = 9;
             this.lblInstAtual_Diretorio_Valor.TabStop = true;
             this.lblInstAtual_Diretorio_Valor.Text = "C:\\Arquivos de Programas\\X";
+            this.lblInstAtual_Diretorio_Valor.Click += new System.EventHandler(this.lblInstAtual_Diretorio_Valor_Click);
             // 
             // lblInstAtual_NenhumaInstalacao
             // 

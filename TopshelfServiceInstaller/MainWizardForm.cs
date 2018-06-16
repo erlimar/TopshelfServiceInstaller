@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,10 +66,7 @@ namespace TopshelfServiceInstaller
         {
             PreencherDadosInstalacaoAtual();
 
-            if (_instalacao == null)
-            {
-                lblInstAtual_NenhumaInstalacao.Show();
-            }
+            lblInstAtual_NenhumaInstalacao.Visible = _instalacao == null;
 
             lblInstAtual_Diretorio.Visible
                 = lblInstAtual_Diretorio_Valor.Visible
@@ -82,22 +82,58 @@ namespace TopshelfServiceInstaller
         private void PreencherDadosInstalacaoAtual()
         {
             lblInstAtual_Diretorio_Valor.Text = _instalacao?.Diretorio;
-            lblInstAtual_NomeServico_Valor.Text = _instalacao?.NomeServico;
+            lblInstAtual_NomeServico_Valor.Text = _instalacao?.TituloServico;
             lblInstAtual_StatusServico_Valor.Text = _instalacao?.StatusServico.ToString();
             lblInstAtual_Versao_Valor.Text = _instalacao?.Versao;
         }
 
         private InstalacaoConfig ObterInstalacaoAtual()
         {
-            return null;
+            RegistryKey hKeySoftware = Registry.LocalMachine.OpenSubKey("SOFTWARE");
+
+            if (hKeySoftware == null) return null;
+
+            var hKeyOwner = hKeySoftware.OpenSubKey(Constants.REGISTRY_ENTRY_OWNER);
+
+            if (hKeyOwner == null) return null;
+
+            object hKeyName = hKeyOwner.GetValue(Constants.REGISTRY_ENTRY_NAME);
+            object hKeyDisplayName = hKeyOwner.GetValue(Constants.REGISTRY_ENTRY_DISPLAY);
+            object hKeyVersion = hKeyOwner.GetValue(Constants.REGISTRY_ENTRY_VERSION);
+            object hKeyInstallDirectory = hKeyOwner.GetValue(Constants.REGISTRY_ENTRY_INSTALL_DIRECTORY);
+
+            if (hKeyName == null || hKeyName.GetType() != typeof(string) ||
+                hKeyDisplayName == null || hKeyDisplayName.GetType() != typeof(string) ||
+                hKeyVersion == null || hKeyVersion.GetType() != typeof(string) ||
+                hKeyInstallDirectory == null || hKeyInstallDirectory.GetType() != typeof(string))
+            {
+                return null;
+            }
 
             return new InstalacaoConfig
             {
-                Diretorio = Environment.CurrentDirectory,
-                NomeServico = "Nome serviço",
-                StatusServico = StatusServico.Parado,
-                Versao = "0.1.2-pre"
+                NomeServico = hKeyName.ToString(),
+                TituloServico = hKeyDisplayName.ToString(),
+                Diretorio = hKeyInstallDirectory.ToString(),
+                StatusServico = ObterStatusServico(hKeyName.ToString()),
+                Versao = hKeyVersion.ToString()
             };
+        }
+
+        private StatusServico ObterStatusServico(string nomeServico)
+        {
+            // TODO: Verificar status do serviço por nome
+            return StatusServico.Parado;
+        }
+
+        private void lblInstAtual_Diretorio_Valor_Click(object sender, EventArgs e)
+        {
+            string path = lblInstAtual_Diretorio_Valor.Text;
+
+            if (Directory.Exists(path))
+            {
+                Process.Start(path);
+            }
         }
     }
 }
