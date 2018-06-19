@@ -48,9 +48,21 @@
             this.btnInstalar = new System.Windows.Forms.Button();
             this.lblCopyright = new System.Windows.Forms.Label();
             this.lnkSair = new System.Windows.Forms.LinkLabel();
+            this.pnlProgresso = new System.Windows.Forms.Panel();
+            this.lblProgresso_Titulo = new System.Windows.Forms.Label();
+            this.clblProgresso_Tarefas = new System.Windows.Forms.CheckedListBox();
+            this.pgbProgresso_Barra = new System.Windows.Forms.ProgressBar();
+            this.pnlPreInstalar = new System.Windows.Forms.Panel();
+            this.btnPreInstalar_Instalar = new System.Windows.Forms.Button();
+            this.btnPreInstalar_Cancelar = new System.Windows.Forms.Button();
+            this.btnPreInstalar_SelecionarDiretorioDestino = new System.Windows.Forms.Button();
+            this.txtPreInstalar_DiretorioDestino = new System.Windows.Forms.TextBox();
+            this.lblPreInstalar_DiretorioDestino = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.gbxInstAtual.SuspendLayout();
             this.pnlWizard_1.SuspendLayout();
+            this.pnlProgresso.SuspendLayout();
+            this.pnlPreInstalar.SuspendLayout();
             this.SuspendLayout();
             // 
             // imgLogo
@@ -253,6 +265,7 @@
             this.btnInstalar.Text = "INSTALAR";
             this.btnInstalar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnInstalar.UseVisualStyleBackColor = true;
+            this.btnInstalar.Click += new System.EventHandler(this.btnInstalar_Click);
             // 
             // lblCopyright
             // 
@@ -279,6 +292,107 @@
             this.lnkSair.Text = "Sair";
             this.lnkSair.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkSair_LinkClicked);
             // 
+            // pnlProgresso
+            // 
+            this.pnlProgresso.BackColor = System.Drawing.Color.Transparent;
+            this.pnlProgresso.Controls.Add(this.clblProgresso_Tarefas);
+            this.pnlProgresso.Controls.Add(this.lblProgresso_Titulo);
+            this.pnlProgresso.Controls.Add(this.pgbProgresso_Barra);
+            this.pnlProgresso.Location = new System.Drawing.Point(26, 61);
+            this.pnlProgresso.Name = "pnlProgresso";
+            this.pnlProgresso.Size = new System.Drawing.Size(743, 181);
+            this.pnlProgresso.TabIndex = 10;
+            // 
+            // lblProgresso_Titulo
+            // 
+            this.lblProgresso_Titulo.AutoSize = true;
+            this.lblProgresso_Titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProgresso_Titulo.Location = new System.Drawing.Point(-4, 2);
+            this.lblProgresso_Titulo.Name = "lblProgresso_Titulo";
+            this.lblProgresso_Titulo.Size = new System.Drawing.Size(51, 20);
+            this.lblProgresso_Titulo.TabIndex = 2;
+            this.lblProgresso_Titulo.Text = "label1";
+            // 
+            // clblProgresso_Tarefas
+            // 
+            this.clblProgresso_Tarefas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clblProgresso_Tarefas.FormattingEnabled = true;
+            this.clblProgresso_Tarefas.Location = new System.Drawing.Point(0, 68);
+            this.clblProgresso_Tarefas.Name = "clblProgresso_Tarefas";
+            this.clblProgresso_Tarefas.Size = new System.Drawing.Size(743, 109);
+            this.clblProgresso_Tarefas.TabIndex = 1;
+            // 
+            // pgbProgresso_Barra
+            // 
+            this.pgbProgresso_Barra.Location = new System.Drawing.Point(0, 27);
+            this.pgbProgresso_Barra.Name = "pgbProgresso_Barra";
+            this.pgbProgresso_Barra.Size = new System.Drawing.Size(743, 23);
+            this.pgbProgresso_Barra.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.pgbProgresso_Barra.TabIndex = 0;
+            // 
+            // pnlPreInstalar
+            // 
+            this.pnlPreInstalar.BackColor = System.Drawing.Color.Transparent;
+            this.pnlPreInstalar.Controls.Add(this.btnPreInstalar_Instalar);
+            this.pnlPreInstalar.Controls.Add(this.btnPreInstalar_Cancelar);
+            this.pnlPreInstalar.Controls.Add(this.btnPreInstalar_SelecionarDiretorioDestino);
+            this.pnlPreInstalar.Controls.Add(this.txtPreInstalar_DiretorioDestino);
+            this.pnlPreInstalar.Controls.Add(this.lblPreInstalar_DiretorioDestino);
+            this.pnlPreInstalar.Location = new System.Drawing.Point(12, 23);
+            this.pnlPreInstalar.Name = "pnlPreInstalar";
+            this.pnlPreInstalar.Size = new System.Drawing.Size(743, 181);
+            this.pnlPreInstalar.TabIndex = 11;
+            this.pnlPreInstalar.VisibleChanged += new System.EventHandler(this.pnlPreInstalar_VisibleChanged);
+            // 
+            // btnPreInstalar_Instalar
+            // 
+            this.btnPreInstalar_Instalar.Location = new System.Drawing.Point(659, 112);
+            this.btnPreInstalar_Instalar.Name = "btnPreInstalar_Instalar";
+            this.btnPreInstalar_Instalar.Size = new System.Drawing.Size(84, 36);
+            this.btnPreInstalar_Instalar.TabIndex = 4;
+            this.btnPreInstalar_Instalar.Text = "&Instalar";
+            this.btnPreInstalar_Instalar.UseVisualStyleBackColor = true;
+            this.btnPreInstalar_Instalar.Click += new System.EventHandler(this.btnPreInstalar_Instalar_Click);
+            // 
+            // btnPreInstalar_Cancelar
+            // 
+            this.btnPreInstalar_Cancelar.Location = new System.Drawing.Point(531, 112);
+            this.btnPreInstalar_Cancelar.Name = "btnPreInstalar_Cancelar";
+            this.btnPreInstalar_Cancelar.Size = new System.Drawing.Size(97, 36);
+            this.btnPreInstalar_Cancelar.TabIndex = 3;
+            this.btnPreInstalar_Cancelar.Text = "&Cancelar";
+            this.btnPreInstalar_Cancelar.UseVisualStyleBackColor = true;
+            this.btnPreInstalar_Cancelar.Click += new System.EventHandler(this.btnPreInstalar_Cancelar_Click);
+            // 
+            // btnPreInstalar_SelecionarDiretorioDestino
+            // 
+            this.btnPreInstalar_SelecionarDiretorioDestino.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPreInstalar_SelecionarDiretorioDestino.Location = new System.Drawing.Point(710, 60);
+            this.btnPreInstalar_SelecionarDiretorioDestino.Name = "btnPreInstalar_SelecionarDiretorioDestino";
+            this.btnPreInstalar_SelecionarDiretorioDestino.Size = new System.Drawing.Size(33, 28);
+            this.btnPreInstalar_SelecionarDiretorioDestino.TabIndex = 2;
+            this.btnPreInstalar_SelecionarDiretorioDestino.Text = "...";
+            this.btnPreInstalar_SelecionarDiretorioDestino.UseVisualStyleBackColor = true;
+            this.btnPreInstalar_SelecionarDiretorioDestino.Click += new System.EventHandler(this.btnPreInstalar_SelecionarDiretorioDestino_Click);
+            // 
+            // txtPreInstalar_DiretorioDestino
+            // 
+            this.txtPreInstalar_DiretorioDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPreInstalar_DiretorioDestino.Location = new System.Drawing.Point(0, 61);
+            this.txtPreInstalar_DiretorioDestino.Name = "txtPreInstalar_DiretorioDestino";
+            this.txtPreInstalar_DiretorioDestino.ReadOnly = true;
+            this.txtPreInstalar_DiretorioDestino.Size = new System.Drawing.Size(704, 26);
+            this.txtPreInstalar_DiretorioDestino.TabIndex = 1;
+            // 
+            // lblPreInstalar_DiretorioDestino
+            // 
+            this.lblPreInstalar_DiretorioDestino.AutoSize = true;
+            this.lblPreInstalar_DiretorioDestino.Location = new System.Drawing.Point(-3, 45);
+            this.lblPreInstalar_DiretorioDestino.Name = "lblPreInstalar_DiretorioDestino";
+            this.lblPreInstalar_DiretorioDestino.Size = new System.Drawing.Size(115, 13);
+            this.lblPreInstalar_DiretorioDestino.TabIndex = 0;
+            this.lblPreInstalar_DiretorioDestino.Text = "Diretório de instalação:";
+            // 
             // MainWizardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,6 +402,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(795, 502);
             this.ControlBox = false;
+            this.Controls.Add(this.pnlPreInstalar);
+            this.Controls.Add(this.pnlProgresso);
             this.Controls.Add(this.lnkSair);
             this.Controls.Add(this.lblCopyright);
             this.Controls.Add(this.pnlWizard_1);
@@ -307,6 +423,10 @@
             this.gbxInstAtual.ResumeLayout(false);
             this.gbxInstAtual.PerformLayout();
             this.pnlWizard_1.ResumeLayout(false);
+            this.pnlProgresso.ResumeLayout(false);
+            this.pnlProgresso.PerformLayout();
+            this.pnlPreInstalar.ResumeLayout(false);
+            this.pnlPreInstalar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,6 +453,16 @@
         private System.Windows.Forms.Button btnReinstalar;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnDesinstalar;
+        private System.Windows.Forms.Panel pnlProgresso;
+        private System.Windows.Forms.Label lblProgresso_Titulo;
+        private System.Windows.Forms.CheckedListBox clblProgresso_Tarefas;
+        private System.Windows.Forms.ProgressBar pgbProgresso_Barra;
+        private System.Windows.Forms.Panel pnlPreInstalar;
+        private System.Windows.Forms.TextBox txtPreInstalar_DiretorioDestino;
+        private System.Windows.Forms.Label lblPreInstalar_DiretorioDestino;
+        private System.Windows.Forms.Button btnPreInstalar_SelecionarDiretorioDestino;
+        private System.Windows.Forms.Button btnPreInstalar_Instalar;
+        private System.Windows.Forms.Button btnPreInstalar_Cancelar;
     }
 }
 

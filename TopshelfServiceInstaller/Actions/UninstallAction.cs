@@ -33,7 +33,7 @@ namespace TopshelfServiceInstaller.Actions
 
         public void DoAction()
         {
-            var listaExcluir = EnumerarArquivosParaExcluir(new DirectoryInfo(_config.Diretorio));
+            var listaExcluir = EnumerarArquivosParaExcluir(new DirectoryInfo(_config.DiretorioDestino));
 
             foreach (var excluir in listaExcluir)
             {
