@@ -107,7 +107,7 @@ namespace TopshelfServiceInstaller
 
         public void InitProgress(string[] steps)
         {
-            lblProgresso_Titulo.Text = steps[0] ?? "";
+            lblProgresso_Titulo.Text = "";
 
             clblProgresso_Tarefas.Items.Clear();
 
@@ -135,6 +135,7 @@ namespace TopshelfServiceInstaller
         public void SelectStep(string stepName)
         {
             clblProgresso_Tarefas.SelectedItem = stepName;
+            lblProgresso_Titulo.Text = string.Format("Executando tarefa: {0}", stepName);
             UpdateProgress();
         }
 

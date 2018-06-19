@@ -45,11 +45,11 @@ namespace TopshelfServiceInstaller.Actions
         {
             var steps = new string[]
             {
-                "Criar diretórios",
-                "Descompactar arquivos de instalação",
-                "Copiar arquivos do serviço",
-                "Instalar serviço Windows",
-                "Iniciar serviço Windows"
+                "Criando diretórios",
+                "Descompactando arquivos",
+                "Instalando serviço Windows",
+                "Iniciando serviço Windows",
+                "Finalizando instalação"
             };
 
             _form.TS_InitProgress(steps);
@@ -63,29 +63,29 @@ namespace TopshelfServiceInstaller.Actions
 
                 switch (stepCount)
                 {
-                    // Criar diretórios
+                    // Criando diretórios
                     case 0:
                         Do_CriarDiretorios();
                         break;
 
-                    // Descompactar arquivos de instalação
+                    // Descompactando arquivos
                     case 1:
                         Do_DescompactarArquivosInstalacao();
                         break;
 
-                    // Copiar arquivos do serviço
+                    // Instalando serviço Windows
                     case 2:
-                        Do_CopiarArquivosServico();
-                        break;
-
-                    // Instalar serviço Windows
-                    case 3:
                         Do_InstalarServicoWindows();
                         break;
 
-                    // Iniciar serviço Window
-                    case 4:
+                    // Iniciando serviço Windows
+                    case 3:
                         Do_IniciarServicoWindows();
+                        break;
+
+                    // Finalizando instalação
+                    case 4:
+                        Do_Finalizar();
                         break;
                 }
 
@@ -142,17 +142,17 @@ namespace TopshelfServiceInstaller.Actions
             }
         }
 
-        private void Do_CopiarArquivosServico()
-        {
-            Thread.Sleep(1000);
-        }
-
         private void Do_InstalarServicoWindows()
         {
             Thread.Sleep(1000);
         }
 
         private void Do_IniciarServicoWindows()
+        {
+            Thread.Sleep(1000);
+        }
+
+        private void Do_Finalizar()
         {
             Thread.Sleep(1000);
         }

@@ -401,8 +401,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(795, 502);
             this.ControlBox = false;
-            this.Controls.Add(this.pnlPreInstalar);
             this.Controls.Add(this.pnlProgresso);
+            this.Controls.Add(this.pnlPreInstalar);
             this.Controls.Add(this.lnkSair);
             this.Controls.Add(this.lblCopyright);
             this.Controls.Add(this.pnlWizard_1);
