@@ -4,6 +4,7 @@ using System.Linq;
 using System.IO.Compression;
 using System.Threading;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace TopshelfServiceInstaller.Actions
 {
@@ -14,6 +15,7 @@ namespace TopshelfServiceInstaller.Actions
 
         private readonly InstalacaoConfig _config;
         private readonly MainWizardForm _form;
+        private bool _erro;
 
         public static void DoAction(InstalacaoConfig config, MainWizardForm form)
         {
@@ -57,6 +59,8 @@ namespace TopshelfServiceInstaller.Actions
 
             for (var stepCount = 0; stepCount < steps.Length; stepCount++)
             {
+                if (_erro) break;
+
                 var step = steps[stepCount];
 
                 _form.TS_SelectStep(step);
@@ -89,14 +93,18 @@ namespace TopshelfServiceInstaller.Actions
                         break;
                 }
 
-                _form.TS_CompleteStep(step);
+                if (!_erro)
+                    _form.TS_CompleteStep(step);
             }
 
-            Do_Sucesso();
+            if (!_erro)
+                Do_Sucesso();
         }
 
         private void Do_CriarDiretorios()
         {
+            _erro = false;
+
             if (!Directory.Exists(_config.DiretorioDestino))
             {
                 Directory.CreateDirectory(_config.DiretorioDestino);
@@ -118,42 +126,109 @@ namespace TopshelfServiceInstaller.Actions
 
         private void Do_DescompactarArquivosInstalacao()
         {
-            var dataFile = GetResource(Path.Combine(DATA_FILE_FOLDER, DATA_FILE_NAME));
+            _erro = false;
 
-            var zip = new ZipArchive(dataFile);
-
-            // Criando diretorios
-            foreach (var entry in zip.Entries.Where(w => string.IsNullOrEmpty(w.Name)))
+            using (var dataFile = GetResource(Path.Combine(DATA_FILE_FOLDER, DATA_FILE_NAME)))
             {
-                var dirPath = Path.GetFullPath(Path.Combine(_config.DiretorioDestino, entry.FullName));
-
-                if (!Directory.Exists(dirPath))
+                using (var zip = new ZipArchive(dataFile))
                 {
-                    Directory.CreateDirectory(dirPath);
+                    // Criando diretorios
+                    foreach (var entry in zip.Entries.Where(w => string.IsNullOrEmpty(w.Name)))
+                    {
+                        var dirPath = Path.GetFullPath(Path.Combine(_config.DiretorioDestino, entry.FullName));
+
+                        if (!Directory.Exists(dirPath))
+                        {
+                            Directory.CreateDirectory(dirPath);
+                        }
+                    }
+
+                    // Extraindo arquivos
+                    foreach (var entry in zip.Entries.Where(w => !string.IsNullOrEmpty(w.Name)))
+                    {
+                        var filePath = Path.GetFullPath(Path.Combine(_config.DiretorioDestino, entry.FullName));
+
+                        entry.ExtractToFile(filePath, true);
+                    }
                 }
-            }
-
-            // Extraindo arquivos
-            foreach (var entry in zip.Entries.Where(w => !string.IsNullOrEmpty(w.Name)))
-            {
-                var filePath = Path.GetFullPath(Path.Combine(_config.DiretorioDestino, entry.FullName));
-
-                entry.ExtractToFile(filePath, true);
             }
         }
 
         private void Do_InstalarServicoWindows()
         {
-            Thread.Sleep(1000);
+            _erro = false;
+
+            var exePath = Path.Combine(_config.DiretorioDestino, InstalacaoConfig.SERVICE_EXE);
+            var procInfo = new ProcessStartInfo(exePath);
+
+            procInfo.Arguments = "install";
+
+            procInfo.WorkingDirectory = _config.DiretorioDestino;
+            procInfo.UseShellExecute = false;
+            procInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            procInfo.RedirectStandardError = true;
+            procInfo.RedirectStandardOutput = true;
+
+            var proc = Process.Start(procInfo);
+
+            proc.WaitForExit();
+
+            if (proc.ExitCode != 0)
+            {
+                _form.TS_ShowMessage(
+                    string.Format(
+                        "O serviço {0} retornou código {1} ao ser instalado:\n\n{2}{3}",
+                        InstalacaoConfig.SERVICE_EXE,
+                        proc.ExitCode,
+                        proc.StandardError.ReadToEnd(),
+                        proc.StandardOutput.ReadToEnd()),
+                    "Erro ao instalar",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                _erro = true;
+            }
         }
 
         private void Do_IniciarServicoWindows()
         {
-            Thread.Sleep(1000);
+            _erro = false;
+
+            var exePath = Path.Combine(_config.DiretorioDestino, InstalacaoConfig.SERVICE_EXE);
+            var procInfo = new ProcessStartInfo(exePath);
+
+            procInfo.Arguments = "start";
+
+            procInfo.WorkingDirectory = _config.DiretorioDestino;
+
+            procInfo.UseShellExecute = false;
+            procInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            procInfo.RedirectStandardError = true;
+            procInfo.RedirectStandardOutput = true;
+
+            var proc = Process.Start(procInfo);
+
+            proc.WaitForExit();
+
+            if (proc.ExitCode != 0)
+            {
+                _form.TS_ShowMessage(
+                    string.Format(
+                        "O serviço {0} retornou código {1} ao ser iniciado:\n\n{2}{3}",
+                        InstalacaoConfig.SERVICE_EXE,
+                        proc.ExitCode,
+                        proc.StandardError.ReadToEnd(),
+                        proc.StandardOutput.ReadToEnd()),
+                    "Erro ao iniciar",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                _erro = true;
+            }
         }
 
         private void Do_Finalizar()
         {
+            _erro = false;
+
             Thread.Sleep(1000);
         }
 
