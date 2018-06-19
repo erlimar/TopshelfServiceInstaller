@@ -289,8 +289,7 @@ namespace TopshelfServiceInstaller
                 return;
             }
 
-            var programFilesPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles, Environment.SpecialFolderOption.DoNotVerify);
-            var config = CriarInstalacao(programFilesPath);
+            var config = CriarInstalacao(txtPreInstalar_DiretorioDestino.Text);
 
             InstallAction.DoAction(config, this);
         }

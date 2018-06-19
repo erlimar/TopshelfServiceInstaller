@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
+using System.IO.Compression;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -6,6 +9,9 @@ namespace TopshelfServiceInstaller.Actions
 {
     public class InstallAction
     {
+        private const string DATA_FILE_FOLDER = "Data";
+        private const string DATA_FILE_NAME = "Target_Setup_Data.zip";
+
         private readonly InstalacaoConfig _config;
         private readonly MainWizardForm _form;
 
@@ -91,12 +97,49 @@ namespace TopshelfServiceInstaller.Actions
 
         private void Do_CriarDiretorios()
         {
-            Thread.Sleep(1000);
+            if (!Directory.Exists(_config.DiretorioDestino))
+            {
+                Directory.CreateDirectory(_config.DiretorioDestino);
+            }
+        }
+
+        private Stream GetResource(string resourcePath)
+        {
+            var programType = typeof(Program);
+            var assembly = programType.Assembly;
+
+            var resourceFullPath = Path
+                .Combine(programType.Namespace, resourcePath)
+                .Replace("/", ".")
+                .Replace("\\", ".");
+
+            return assembly.GetManifestResourceStream(resourceFullPath);
         }
 
         private void Do_DescompactarArquivosInstalacao()
         {
-            Thread.Sleep(1000);
+            var dataFile = GetResource(Path.Combine(DATA_FILE_FOLDER, DATA_FILE_NAME));
+
+            var zip = new ZipArchive(dataFile);
+
+            // Criando diretorios
+            foreach (var entry in zip.Entries.Where(w => string.IsNullOrEmpty(w.Name)))
+            {
+                var dirPath = Path.GetFullPath(Path.Combine(_config.DiretorioDestino, entry.FullName));
+
+                if (!Directory.Exists(dirPath))
+                {
+                    Directory.CreateDirectory(dirPath);
+                }
+            }
+
+            // Extraindo arquivos
+            foreach (var entry in zip.Entries.Where(w => !string.IsNullOrEmpty(w.Name)))
+            {
+                var filePath = Path.GetFullPath(Path.Combine(_config.DiretorioDestino, entry.FullName));
+
+                entry.ExtractToFile(filePath, true);
+            }
         }
 
         private void Do_CopiarArquivosServico()

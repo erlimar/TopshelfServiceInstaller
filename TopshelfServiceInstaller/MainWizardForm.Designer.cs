@@ -380,7 +380,6 @@
             this.txtPreInstalar_DiretorioDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPreInstalar_DiretorioDestino.Location = new System.Drawing.Point(0, 61);
             this.txtPreInstalar_DiretorioDestino.Name = "txtPreInstalar_DiretorioDestino";
-            this.txtPreInstalar_DiretorioDestino.ReadOnly = true;
             this.txtPreInstalar_DiretorioDestino.Size = new System.Drawing.Size(704, 26);
             this.txtPreInstalar_DiretorioDestino.TabIndex = 1;
             // 
