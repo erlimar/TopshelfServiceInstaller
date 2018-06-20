@@ -5,6 +5,7 @@ using System.IO.Compression;
 using System.Threading;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Microsoft.Win32;
 
 namespace TopshelfServiceInstaller.Actions
 {
@@ -229,7 +230,48 @@ namespace TopshelfServiceInstaller.Actions
         {
             _erro = false;
 
-            Thread.Sleep(1000);
+            RegistryKey hKeySoftware = Registry.LocalMachine.OpenSubKey("SOFTWARE", true);
+
+            if (hKeySoftware == null)
+            {
+                _form.TS_ShowMessage("Erro ao ler registro HKEY_LOCAL_MACHINE\\SOFTWARE do windows.", "Erro de registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _erro = true;
+
+                return;
+            }
+
+            var hKeyOwner = hKeySoftware.CreateSubKey(Constants.REGISTRY_ENTRY_OWNER, true);
+
+            if (hKeyOwner == null)
+            {
+                _form.TS_ShowMessage("Erro ao escrever no registro do windows.", "Erro de registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _erro = true;
+
+                return;
+            }
+
+            // Gravando valores no registro
+            hKeyOwner.SetValue(Constants.REGISTRY_ENTRY_NAME, _config.NomeServico, RegistryValueKind.String);
+            hKeyOwner.SetValue(Constants.REGISTRY_ENTRY_DISPLAY, _config.TituloServico, RegistryValueKind.String);
+            hKeyOwner.SetValue(Constants.REGISTRY_ENTRY_VERSION, _config.Versao, RegistryValueKind.String);
+            hKeyOwner.SetValue(Constants.REGISTRY_ENTRY_INSTALL_DIRECTORY, _config.DiretorioDestino, RegistryValueKind.String);
+
+            // Verificando se valores foram gravados com sucesso
+            object hKeyName = hKeyOwner.GetValue(Constants.REGISTRY_ENTRY_NAME);
+            object hKeyDisplayName = hKeyOwner.GetValue(Constants.REGISTRY_ENTRY_DISPLAY);
+            object hKeyVersion = hKeyOwner.GetValue(Constants.REGISTRY_ENTRY_VERSION);
+            object hKeyInstallDirectory = hKeyOwner.GetValue(Constants.REGISTRY_ENTRY_INSTALL_DIRECTORY);
+
+            if (hKeyName == null || hKeyName.GetType() != typeof(string) ||
+                hKeyDisplayName == null || hKeyDisplayName.GetType() != typeof(string) ||
+                hKeyVersion == null || hKeyVersion.GetType() != typeof(string) ||
+                hKeyInstallDirectory == null || hKeyInstallDirectory.GetType() != typeof(string))
+            {
+                _form.TS_ShowMessage("Erro ao escrever valores no registro do windows.", "Erro de registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _erro = true;
+
+                return;
+            }
         }
 
         private void Do_Sucesso()
