@@ -59,11 +59,17 @@
             this.txtPreInstalar_DiretorioDestino = new System.Windows.Forms.TextBox();
             this.lblPreInstalar_DiretorioDestino = new System.Windows.Forms.Label();
             this.lnkRelerInstalacao = new System.Windows.Forms.LinkLabel();
+            this.pnlPreDesinstalar = new System.Windows.Forms.Panel();
+            this.btnPreDesinstalar_Desinstalar = new System.Windows.Forms.Button();
+            this.btnPreDesinstalar_Cancelar = new System.Windows.Forms.Button();
+            this.lblPreDesinstalar_Aviso = new System.Windows.Forms.Label();
+            this.lblPreDesinstalar_AvisoTexto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.gbxInstAtual.SuspendLayout();
             this.pnlWizard_1.SuspendLayout();
             this.pnlProgresso.SuspendLayout();
             this.pnlPreInstalar.SuspendLayout();
+            this.pnlPreDesinstalar.SuspendLayout();
             this.SuspendLayout();
             // 
             // imgLogo
@@ -300,9 +306,9 @@
             this.pnlProgresso.Controls.Add(this.clblProgresso_Tarefas);
             this.pnlProgresso.Controls.Add(this.lblProgresso_Titulo);
             this.pnlProgresso.Controls.Add(this.pgbProgresso_Barra);
-            this.pnlProgresso.Location = new System.Drawing.Point(664, 45);
+            this.pnlProgresso.Location = new System.Drawing.Point(701, 34);
             this.pnlProgresso.Name = "pnlProgresso";
-            this.pnlProgresso.Size = new System.Drawing.Size(743, 181);
+            this.pnlProgresso.Size = new System.Drawing.Size(50, 181);
             this.pnlProgresso.TabIndex = 10;
             // 
             // clblProgresso_Tarefas
@@ -340,9 +346,9 @@
             this.pnlPreInstalar.Controls.Add(this.btnPreInstalar_SelecionarDiretorioDestino);
             this.pnlPreInstalar.Controls.Add(this.txtPreInstalar_DiretorioDestino);
             this.pnlPreInstalar.Controls.Add(this.lblPreInstalar_DiretorioDestino);
-            this.pnlPreInstalar.Location = new System.Drawing.Point(12, 218);
+            this.pnlPreInstalar.Location = new System.Drawing.Point(569, 36);
             this.pnlPreInstalar.Name = "pnlPreInstalar";
-            this.pnlPreInstalar.Size = new System.Drawing.Size(743, 181);
+            this.pnlPreInstalar.Size = new System.Drawing.Size(65, 181);
             this.pnlPreInstalar.TabIndex = 11;
             this.pnlPreInstalar.VisibleChanged += new System.EventHandler(this.pnlPreInstalar_VisibleChanged);
             // 
@@ -405,6 +411,60 @@
             this.lnkRelerInstalacao.Text = "Recarregar";
             this.lnkRelerInstalacao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRelerInstalacao_LinkClicked);
             // 
+            // pnlPreDesinstalar
+            // 
+            this.pnlPreDesinstalar.BackColor = System.Drawing.Color.Transparent;
+            this.pnlPreDesinstalar.Controls.Add(this.lblPreDesinstalar_AvisoTexto);
+            this.pnlPreDesinstalar.Controls.Add(this.lblPreDesinstalar_Aviso);
+            this.pnlPreDesinstalar.Controls.Add(this.btnPreDesinstalar_Desinstalar);
+            this.pnlPreDesinstalar.Controls.Add(this.btnPreDesinstalar_Cancelar);
+            this.pnlPreDesinstalar.Location = new System.Drawing.Point(640, 36);
+            this.pnlPreDesinstalar.Name = "pnlPreDesinstalar";
+            this.pnlPreDesinstalar.Size = new System.Drawing.Size(55, 181);
+            this.pnlPreDesinstalar.TabIndex = 12;
+            // 
+            // btnPreDesinstalar_Desinstalar
+            // 
+            this.btnPreDesinstalar_Desinstalar.Location = new System.Drawing.Point(619, 112);
+            this.btnPreDesinstalar_Desinstalar.Name = "btnPreDesinstalar_Desinstalar";
+            this.btnPreDesinstalar_Desinstalar.Size = new System.Drawing.Size(124, 36);
+            this.btnPreDesinstalar_Desinstalar.TabIndex = 6;
+            this.btnPreDesinstalar_Desinstalar.Text = "&SIM (Desinstalar)";
+            this.btnPreDesinstalar_Desinstalar.UseVisualStyleBackColor = true;
+            this.btnPreDesinstalar_Desinstalar.Click += new System.EventHandler(this.btnPreDesinstalar_Desinstalar_Click);
+            // 
+            // btnPreDesinstalar_Cancelar
+            // 
+            this.btnPreDesinstalar_Cancelar.Location = new System.Drawing.Point(488, 112);
+            this.btnPreDesinstalar_Cancelar.Name = "btnPreDesinstalar_Cancelar";
+            this.btnPreDesinstalar_Cancelar.Size = new System.Drawing.Size(97, 36);
+            this.btnPreDesinstalar_Cancelar.TabIndex = 5;
+            this.btnPreDesinstalar_Cancelar.Text = "&Cancelar";
+            this.btnPreDesinstalar_Cancelar.UseVisualStyleBackColor = true;
+            this.btnPreDesinstalar_Cancelar.Click += new System.EventHandler(this.btnPreDesinstalar_Cancelar_Click);
+            // 
+            // lblPreDesinstalar_Aviso
+            // 
+            this.lblPreDesinstalar_Aviso.AutoSize = true;
+            this.lblPreDesinstalar_Aviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreDesinstalar_Aviso.ForeColor = System.Drawing.Color.Red;
+            this.lblPreDesinstalar_Aviso.Location = new System.Drawing.Point(3, 12);
+            this.lblPreDesinstalar_Aviso.Name = "lblPreDesinstalar_Aviso";
+            this.lblPreDesinstalar_Aviso.Size = new System.Drawing.Size(130, 31);
+            this.lblPreDesinstalar_Aviso.TabIndex = 7;
+            this.lblPreDesinstalar_Aviso.Text = "Atenção!";
+            // 
+            // lblPreDesinstalar_AvisoTexto
+            // 
+            this.lblPreDesinstalar_AvisoTexto.AutoSize = true;
+            this.lblPreDesinstalar_AvisoTexto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreDesinstalar_AvisoTexto.ForeColor = System.Drawing.Color.Black;
+            this.lblPreDesinstalar_AvisoTexto.Location = new System.Drawing.Point(3, 49);
+            this.lblPreDesinstalar_AvisoTexto.Name = "lblPreDesinstalar_AvisoTexto";
+            this.lblPreDesinstalar_AvisoTexto.Size = new System.Drawing.Size(689, 24);
+            this.lblPreDesinstalar_AvisoTexto.TabIndex = 8;
+            this.lblPreDesinstalar_AvisoTexto.Text = "Isso irá remover completamento o serviço do seu computador. Deseja continuar?";
+            // 
             // MainWizardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,6 +474,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(795, 502);
             this.ControlBox = false;
+            this.Controls.Add(this.pnlPreDesinstalar);
             this.Controls.Add(this.pnlPreInstalar);
             this.Controls.Add(this.pnlProgresso);
             this.Controls.Add(this.lnkSair);
@@ -439,6 +500,8 @@
             this.pnlProgresso.PerformLayout();
             this.pnlPreInstalar.ResumeLayout(false);
             this.pnlPreInstalar.PerformLayout();
+            this.pnlPreDesinstalar.ResumeLayout(false);
+            this.pnlPreDesinstalar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,6 +539,11 @@
         private System.Windows.Forms.Button btnPreInstalar_Instalar;
         private System.Windows.Forms.Button btnPreInstalar_Cancelar;
         private System.Windows.Forms.LinkLabel lnkRelerInstalacao;
+        private System.Windows.Forms.Panel pnlPreDesinstalar;
+        private System.Windows.Forms.Button btnPreDesinstalar_Desinstalar;
+        private System.Windows.Forms.Button btnPreDesinstalar_Cancelar;
+        private System.Windows.Forms.Label lblPreDesinstalar_AvisoTexto;
+        private System.Windows.Forms.Label lblPreDesinstalar_Aviso;
     }
 }
 

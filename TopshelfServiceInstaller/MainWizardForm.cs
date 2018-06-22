@@ -14,6 +14,7 @@ namespace TopshelfServiceInstaller
         {
             StartButtons = 1,
             PreInstall,
+            PreUninstall,
             Progress
         }
 
@@ -90,6 +91,10 @@ namespace TopshelfServiceInstaller
                     pnlPreInstalar.Show();
                     break;
 
+                case WizardPanel.PreUninstall:
+                    pnlPreDesinstalar.Show();
+                    break;
+
                 case WizardPanel.Progress:
                     pnlProgresso.Show();
                     break;
@@ -138,7 +143,7 @@ namespace TopshelfServiceInstaller
         public void SelectStep(string stepName)
         {
             clblProgresso_Tarefas.SelectedItem = stepName;
-            lblProgresso_Titulo.Text = string.Format(">> {0}...", stepName);
+            lblProgresso_Titulo.Text = string.Format("{0}...", stepName);
             UpdateProgress();
         }
 
@@ -166,6 +171,9 @@ namespace TopshelfServiceInstaller
 
             pnlPreInstalar.Location = pnlWizard_1.Location;
             pnlPreInstalar.Size = pnlWizard_1.Size;
+
+            pnlPreDesinstalar.Location = pnlWizard_1.Location;
+            pnlPreDesinstalar.Size = pnlWizard_1.Size;
         }
 
         private void HideWizards()
@@ -174,6 +182,7 @@ namespace TopshelfServiceInstaller
 
             pnlProgresso.Hide();
             pnlPreInstalar.Hide();
+            pnlPreDesinstalar.Hide();
         }
 
         private void UpdateInstalacaoAtual()
@@ -276,7 +285,7 @@ namespace TopshelfServiceInstaller
 
         private void btnDesinstalar_Click(object sender, EventArgs e)
         {
-            UninstallAction.DoAction(_instalacao, this);
+            GoToWizard(WizardPanel.PreUninstall);
         }
 
         private void btnPreInstalar_Cancelar_Click(object sender, EventArgs e)
@@ -347,6 +356,16 @@ namespace TopshelfServiceInstaller
         }
 
         private void lnkRelerInstalacao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ResetForm();
+        }
+
+        private void btnPreDesinstalar_Desinstalar_Click(object sender, EventArgs e)
+        {
+            UninstallAction.DoAction(_instalacao, this);
+        }
+
+        private void btnPreDesinstalar_Cancelar_Click(object sender, EventArgs e)
         {
             ResetForm();
         }
