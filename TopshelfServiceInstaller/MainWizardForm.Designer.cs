@@ -49,8 +49,8 @@
             this.lblCopyright = new System.Windows.Forms.Label();
             this.lnkSair = new System.Windows.Forms.LinkLabel();
             this.pnlProgresso = new System.Windows.Forms.Panel();
-            this.lblProgresso_Titulo = new System.Windows.Forms.Label();
             this.clblProgresso_Tarefas = new System.Windows.Forms.CheckedListBox();
+            this.lblProgresso_Titulo = new System.Windows.Forms.Label();
             this.pgbProgresso_Barra = new System.Windows.Forms.ProgressBar();
             this.pnlPreInstalar = new System.Windows.Forms.Panel();
             this.btnPreInstalar_Instalar = new System.Windows.Forms.Button();
@@ -58,6 +58,7 @@
             this.btnPreInstalar_SelecionarDiretorioDestino = new System.Windows.Forms.Button();
             this.txtPreInstalar_DiretorioDestino = new System.Windows.Forms.TextBox();
             this.lblPreInstalar_DiretorioDestino = new System.Windows.Forms.Label();
+            this.lnkRelerInstalacao = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.gbxInstAtual.SuspendLayout();
             this.pnlWizard_1.SuspendLayout();
@@ -90,6 +91,7 @@
             // gbxInstAtual
             // 
             this.gbxInstAtual.BackColor = System.Drawing.Color.Transparent;
+            this.gbxInstAtual.Controls.Add(this.lnkRelerInstalacao);
             this.gbxInstAtual.Controls.Add(this.lblInstAtual_Diretorio_Valor);
             this.gbxInstAtual.Controls.Add(this.lblInstAtual_NenhumaInstalacao);
             this.gbxInstAtual.Controls.Add(this.lblInstAtual_Versao_Valor);
@@ -269,15 +271,15 @@
             // 
             // lblCopyright
             // 
-            this.lblCopyright.AutoSize = true;
             this.lblCopyright.BackColor = System.Drawing.Color.Transparent;
             this.lblCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCopyright.ForeColor = System.Drawing.Color.Teal;
-            this.lblCopyright.Location = new System.Drawing.Point(654, 475);
+            this.lblCopyright.Location = new System.Drawing.Point(12, 475);
             this.lblCopyright.Name = "lblCopyright";
-            this.lblCopyright.Size = new System.Drawing.Size(129, 18);
+            this.lblCopyright.Size = new System.Drawing.Size(771, 18);
             this.lblCopyright.TabIndex = 4;
             this.lblCopyright.Text = "Copyright (c) 2018";
+            this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lnkSair
             // 
@@ -298,10 +300,19 @@
             this.pnlProgresso.Controls.Add(this.clblProgresso_Tarefas);
             this.pnlProgresso.Controls.Add(this.lblProgresso_Titulo);
             this.pnlProgresso.Controls.Add(this.pgbProgresso_Barra);
-            this.pnlProgresso.Location = new System.Drawing.Point(26, 61);
+            this.pnlProgresso.Location = new System.Drawing.Point(664, 45);
             this.pnlProgresso.Name = "pnlProgresso";
             this.pnlProgresso.Size = new System.Drawing.Size(743, 181);
             this.pnlProgresso.TabIndex = 10;
+            // 
+            // clblProgresso_Tarefas
+            // 
+            this.clblProgresso_Tarefas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clblProgresso_Tarefas.FormattingEnabled = true;
+            this.clblProgresso_Tarefas.Location = new System.Drawing.Point(0, 68);
+            this.clblProgresso_Tarefas.Name = "clblProgresso_Tarefas";
+            this.clblProgresso_Tarefas.Size = new System.Drawing.Size(743, 99);
+            this.clblProgresso_Tarefas.TabIndex = 1;
             // 
             // lblProgresso_Titulo
             // 
@@ -312,15 +323,6 @@
             this.lblProgresso_Titulo.Size = new System.Drawing.Size(51, 20);
             this.lblProgresso_Titulo.TabIndex = 2;
             this.lblProgresso_Titulo.Text = "label1";
-            // 
-            // clblProgresso_Tarefas
-            // 
-            this.clblProgresso_Tarefas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clblProgresso_Tarefas.FormattingEnabled = true;
-            this.clblProgresso_Tarefas.Location = new System.Drawing.Point(0, 68);
-            this.clblProgresso_Tarefas.Name = "clblProgresso_Tarefas";
-            this.clblProgresso_Tarefas.Size = new System.Drawing.Size(743, 109);
-            this.clblProgresso_Tarefas.TabIndex = 1;
             // 
             // pgbProgresso_Barra
             // 
@@ -338,7 +340,7 @@
             this.pnlPreInstalar.Controls.Add(this.btnPreInstalar_SelecionarDiretorioDestino);
             this.pnlPreInstalar.Controls.Add(this.txtPreInstalar_DiretorioDestino);
             this.pnlPreInstalar.Controls.Add(this.lblPreInstalar_DiretorioDestino);
-            this.pnlPreInstalar.Location = new System.Drawing.Point(12, 23);
+            this.pnlPreInstalar.Location = new System.Drawing.Point(12, 218);
             this.pnlPreInstalar.Name = "pnlPreInstalar";
             this.pnlPreInstalar.Size = new System.Drawing.Size(743, 181);
             this.pnlPreInstalar.TabIndex = 11;
@@ -392,6 +394,17 @@
             this.lblPreInstalar_DiretorioDestino.TabIndex = 0;
             this.lblPreInstalar_DiretorioDestino.Text = "Diretório de instalação:";
             // 
+            // lnkRelerInstalacao
+            // 
+            this.lnkRelerInstalacao.AutoSize = true;
+            this.lnkRelerInstalacao.Location = new System.Drawing.Point(398, 158);
+            this.lnkRelerInstalacao.Name = "lnkRelerInstalacao";
+            this.lnkRelerInstalacao.Size = new System.Drawing.Size(60, 13);
+            this.lnkRelerInstalacao.TabIndex = 10;
+            this.lnkRelerInstalacao.TabStop = true;
+            this.lnkRelerInstalacao.Text = "Recarregar";
+            this.lnkRelerInstalacao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRelerInstalacao_LinkClicked);
+            // 
             // MainWizardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -401,8 +414,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(795, 502);
             this.ControlBox = false;
-            this.Controls.Add(this.pnlProgresso);
             this.Controls.Add(this.pnlPreInstalar);
+            this.Controls.Add(this.pnlProgresso);
             this.Controls.Add(this.lnkSair);
             this.Controls.Add(this.lblCopyright);
             this.Controls.Add(this.pnlWizard_1);
@@ -462,6 +475,7 @@
         private System.Windows.Forms.Button btnPreInstalar_SelecionarDiretorioDestino;
         private System.Windows.Forms.Button btnPreInstalar_Instalar;
         private System.Windows.Forms.Button btnPreInstalar_Cancelar;
+        private System.Windows.Forms.LinkLabel lnkRelerInstalacao;
     }
 }
 

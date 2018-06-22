@@ -2,9 +2,9 @@
 {
     public class InstalacaoConfig
     {
-        public const string SERVICE_NAME = "tssi_service_name";
+        public const string SERVICE_NAME = "TopshelfServiceSample";
         public const string SERVICE_EXE = "TopshelfServiceSample.exe";
-        public const string SERVICE_TITLE = "Topshelf Service Installer Service Title";
+        public const string SERVICE_TITLE = "Topshelf Service Sample";
         public const string SERVICE_VERSION = "1.0.0";
 
         public string DiretorioOrigem { get; set; }

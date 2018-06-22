@@ -29,6 +29,9 @@ namespace TopshelfServiceInstaller
 
         private void MainWizardForm_Load(object sender, EventArgs e)
         {
+            lblTitulo.Text = Text = Constants.SETUP_TITLE;
+            lblCopyright.Text = Constants.COPYRIGHT;
+
             ActiveControl = lnkSair;
             ResetForm();
         }
@@ -135,7 +138,7 @@ namespace TopshelfServiceInstaller
         public void SelectStep(string stepName)
         {
             clblProgresso_Tarefas.SelectedItem = stepName;
-            lblProgresso_Titulo.Text = string.Format("Executando tarefa: {0}", stepName);
+            lblProgresso_Titulo.Text = string.Format(">> {0}...", stepName);
             UpdateProgress();
         }
 
@@ -320,7 +323,7 @@ namespace TopshelfServiceInstaller
             if (string.IsNullOrEmpty(txtPreInstalar_DiretorioDestino.Text))
             {
                 var programFilesPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
-                var installPath = Path.Combine(programFilesPath, Constants.REGISTRY_ENTRY_OWNER, Constants.REGISTRY_ENTRY_NAME);
+                var installPath = Path.Combine(programFilesPath, Constants.REGISTRY_ENTRY_OWNER, InstalacaoConfig.SERVICE_NAME);
 
                 txtPreInstalar_DiretorioDestino.Text = installPath;
             }
@@ -341,6 +344,11 @@ namespace TopshelfServiceInstaller
         private void ShowMessage(string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
             MessageBox.Show(this, text, caption, buttons, icon);
+        }
+
+        private void lnkRelerInstalacao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ResetForm();
         }
     }
 }
