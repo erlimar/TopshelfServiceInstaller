@@ -122,6 +122,14 @@ namespace TopshelfServiceInstaller.Actions
                         File.Delete(excluir.Path);
                     }
                 }
+
+                // A remoção do diretório principal é opcional. Um erro ao removê-lo
+                // não caracteriza um erro na desinstalação
+                try
+                {
+                    Directory.Delete(_config.DiretorioDestino, true);
+                }
+                catch (Exception) { /* SILENT */ }
             }
             catch (Exception ex)
             {
@@ -151,6 +159,7 @@ namespace TopshelfServiceInstaller.Actions
             procInfo.WindowStyle = ProcessWindowStyle.Hidden;
             procInfo.RedirectStandardError = true;
             procInfo.RedirectStandardOutput = true;
+            procInfo.CreateNoWindow = true;
 
             var proc = Process.Start(procInfo);
 

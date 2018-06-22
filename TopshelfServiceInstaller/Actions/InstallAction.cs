@@ -169,6 +169,7 @@ namespace TopshelfServiceInstaller.Actions
             procInfo.WindowStyle = ProcessWindowStyle.Hidden;
             procInfo.RedirectStandardError = true;
             procInfo.RedirectStandardOutput = true;
+            procInfo.CreateNoWindow = true;
 
             var proc = Process.Start(procInfo);
 
@@ -205,6 +206,7 @@ namespace TopshelfServiceInstaller.Actions
             procInfo.WindowStyle = ProcessWindowStyle.Hidden;
             procInfo.RedirectStandardError = true;
             procInfo.RedirectStandardOutput = true;
+            procInfo.CreateNoWindow = true;
 
             var proc = Process.Start(procInfo);
 
